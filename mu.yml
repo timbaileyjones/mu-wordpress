@@ -33,7 +33,7 @@ service:
   ### The endpoint inside the container to determine if the task is healthy
   ### The default isn't going to be valid under WordPress
   ### (default: /health)
-  healthEndpoint: /robots.txt
+  healthEndpoint: /wp-admin/setup-config.php
 
   ### The port to expose from the container
   ### (default: 8080)
