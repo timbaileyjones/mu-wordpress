@@ -67,7 +67,7 @@ service:
     #WORDPRESS_DB_HOST: ${DatabaseEndpointAddress}:${DatabaseEndpointPort}
     #WORDPRESS_DB_NAME: ${DatabaseName}
 
-    WORDPRESS_DB_HOST: capstone-db.cgfvjmb9egc7.us-east-1.rds.amazonaws.com
+    WORDPRESS_DB_HOST: capstone-db.cgfvjmb9egc7.us-east-1.rds.amazonaws.com:3306
     WORDPRESS_DB_USER: root
     WORDPRESS_DB_PASSWORD: cornet13
     WORDPRESS_DB_NAME: sunshinewp
