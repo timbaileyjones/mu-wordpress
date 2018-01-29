@@ -50,27 +50,27 @@ service:
   ### See https://github.com/timbaileyjones/mu/wiki/Databases
   #database:
     #### Name of database to create on RDS instance
-    #  name: muwp
+    name: muwp
     #
     ##### RDS engine to use
     ##### (default: aurora)
-    ##engine: mysql
+    engine: mysql
     #
     ##### Instance class
     ##### (default: db.t2.small)
-    ##instanceClass: db.t2.small
+    instanceClass: db.t2.small
 
   ### Environment variables exposed to the containers running in ECS
   environment:
-    #WORDPRESS_DB_USER: ${DatabaseMasterUsername}
-    #WORDPRESS_DB_PASSWORD: ${DatabaseMasterPassword}
-    #WORDPRESS_DB_HOST: ${DatabaseEndpointAddress}:${DatabaseEndpointPort}
-    #WORDPRESS_DB_NAME: ${DatabaseName}
+    WORDPRESS_DB_USER: ${DatabaseMasterUsername}
+    WORDPRESS_DB_PASSWORD: ${DatabaseMasterPassword}
+    WORDPRESS_DB_HOST: ${DatabaseEndpointAddress}:${DatabaseEndpointPort}
+    WORDPRESS_DB_NAME: ${DatabaseName}
 
-    WORDPRESS_DB_HOST: capstone-db.cgfvjmb9egc7.us-east-1.rds.amazonaws.com:3306
-    WORDPRESS_DB_USER: root
-    WORDPRESS_DB_PASSWORD: cornet13
-    WORDPRESS_DB_NAME: sunshinewp
+    #WORDPRESS_DB_HOST: capstone-db.cgfvjmb9egc7.us-east-1.rds.amazonaws.com:3306
+    #WORDPRESS_DB_USER: root
+    #WORDPRESS_DB_PASSWORD: cornet13
+    #WORDPRESS_DB_NAME: sunshinewp
     WORDPRESS_TABLE_PREFIX: ssb
 
 
