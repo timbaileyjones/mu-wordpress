@@ -48,7 +48,7 @@ service:
   - /*
 
   ### See https://github.com/timbaileyjones/mu/wiki/Databases
-  #database:
+  database:
     #### Name of database to create on RDS instance
     name: muwp
     #
