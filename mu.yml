@@ -1,7 +1,7 @@
 # Define parameters for a mu pipeline
-# https://github.com/stelligent/mu/wiki/Pipelines
+# https://github.com/timbaileyjones/mu/wiki/Pipelines
 
-## See https://github.com/stelligent/mu/wiki/Environments
+## See https://github.com/timbaileyjones/mu/wiki/Environments
 environments:
 - name: test
   ### Attributes for the ECS container instances
@@ -20,7 +20,7 @@ environments:
     keyName: mu-wordpress
     instanceType: t2.small
 
-## See https://github.com/stelligent/mu/wiki/Services
+## See https://github.com/timbaileyjones/mu/wiki/Services
 service:
   name: mu-wordpress
 
@@ -47,25 +47,32 @@ service:
   pathPatterns:
   - /*
 
-  ### See https://github.com/stelligent/mu/wiki/Databases
-  database:
+  ### See https://github.com/timbaileyjones/mu/wiki/Databases
+  #database:
     #### Name of database to create on RDS instance
-    name: muwp
-
-    #### RDS engine to use
-    #### (default: aurora)
-    #engine: mysql
-
-    #### Instance class
-    #### (default: db.t2.small)
-    #instanceClass: db.t2.small
+    #  name: muwp
+    #
+    ##### RDS engine to use
+    ##### (default: aurora)
+    ##engine: mysql
+    #
+    ##### Instance class
+    ##### (default: db.t2.small)
+    ##instanceClass: db.t2.small
 
   ### Environment variables exposed to the containers running in ECS
   environment:
-    WORDPRESS_DB_USER: ${DatabaseMasterUsername}
-    WORDPRESS_DB_PASSWORD: ${DatabaseMasterPassword}
-    WORDPRESS_DB_HOST: ${DatabaseEndpointAddress}:${DatabaseEndpointPort}
-    WORDPRESS_DB_NAME: ${DatabaseName}
+    #WORDPRESS_DB_USER: ${DatabaseMasterUsername}
+    #WORDPRESS_DB_PASSWORD: ${DatabaseMasterPassword}
+    #WORDPRESS_DB_HOST: ${DatabaseEndpointAddress}:${DatabaseEndpointPort}
+    #WORDPRESS_DB_NAME: ${DatabaseName}
+
+    WORDPRESS_DB_HOST: capstone-db.cgfvjmb9egc7.us-east-1.rds.amazonaws.com
+    WORDPRESS_DB_USER: root
+    WORDPRESS_DB_PASSWORD: cornet13
+    WORDPRESS_DB_NAME: sunshinewp
+    WORDPRESS_TABLE_PREFIX: ssb
+
 
     #### Define this for each environment if you want WP_DEBUG=true
     #### in wp-config.php
@@ -73,7 +80,7 @@ service:
       test: 'true'
       prod: 
 
-  ### See https://github.com/stelligent/mu/wiki/Pipelines
+  ### See https://github.com/timbaileyjones/mu/wiki/Pipelines
   pipeline:
     source:
       #### GitHub or CodeCommit
@@ -82,7 +89,7 @@ service:
 
       #### The GitHub repo slug or CodeCommit repo name to build
       #### (default: none)
-      repo: oshaughnessy/mu-wordpress
+      repo: timbaileyjones/mu-wordpress
 
     acceptance:
       #### The environment name to deploy to for testing
@@ -92,3 +99,4 @@ service:
       #### The environment name to deploy to for production
       #### (default: production)
       environment: prod
+      disabled: true
